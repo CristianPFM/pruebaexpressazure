@@ -12,7 +12,7 @@ const fetchUserData = async () => {
     try {
         const response = await axios.get('https://randomuser.me/api/');
         userData = response.data.results[0]; // Guarda el primer resultado
-        console.log('User data fetched:', userData);
+        console.log('User data fetched:', userData.name);
     } catch (error) {
         console.error('Error fetching user data:', error);
     }
