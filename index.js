@@ -19,12 +19,12 @@ const fetchUserData = async () => {
 };
 
 // Programa la tarea para que se ejecute cada hora
-cron.schedule('0 * * * *', fetchUserData);
+cron.schedule('*/5 * * * *', fetchUserData);
 
 // Ruta para obtener los datos del usuario
 app.get('/user', (req, res) => {
     if (userData) {
-        res.json(userData);
+        res.json(userData.name);
     } else {
         res.status(404).json({ message: 'No user data available' });
     }
